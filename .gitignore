@@ -26,3 +26,23 @@ __pycache__/
 *.pyc
 *.pkl
 .env
+# Large dataset files
+*.csv
+*.pcap
+*.pcapng
+
+# ML files
+*.pkl
+*.joblib
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.venv/
+
+# Frontend
+node_modules/
+dist/
