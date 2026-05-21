@@ -1,4 +1,8 @@
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 from fastapi import FastAPI
+from auth import router as auth_router
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import numpy as np
@@ -6,9 +10,18 @@ import joblib
 from datetime import datetime, timedelta
 import random
 
+load_dotenv()
+
+client = MongoClient(os.getenv("MONGO_URI"))
+
+db = client["intrusion_db"]
+collection = db["predictions"]
+
+print("MongoDB Connected")
+
 # Create FastAPI app
 app = FastAPI()
-
+app.include_router(auth_router)
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -143,7 +156,13 @@ def predict():
 
         # Severity
         severity = severity_map.get(attack, "Medium")
+        data = {
+    "prediction": attack,
+    "severity": severity,
+    "timestamp": datetime.utcnow()
+     }
 
+        collection.insert_one(data)
         return {
             "prediction": attack,
             "severity": severity,

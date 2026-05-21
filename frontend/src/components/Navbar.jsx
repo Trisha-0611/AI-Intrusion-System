@@ -6,6 +6,7 @@ import ConnectivityIndicator from "./ConnectivityIndicator";
 
 const pageLabels = {
   home: "Home",
+  login: "Login",
   dashboard: "Dashboard",
   alerts: "Alerts",
   history: "Attack History",

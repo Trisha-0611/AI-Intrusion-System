@@ -10,6 +10,7 @@ import AttackHistory from "./pages/AttackHistory";
 import ThreatAnalytics from "./pages/ThreatAnalytics";
 import LiveMonitor from "./pages/LiveMonitor";
 import Settings from "./pages/Settings";
+import Login from "./pages/Login";
 import ToastContainer from "./components/Toast";
 import Modal from "./components/Modal";
 import { ConnectivityProvider } from "./contexts/ConnectivityContext";
@@ -138,6 +139,7 @@ export default function App() {
               >
                 <Routes location={location}>
                   <Route path="/" element={<Home navigate={navigate} notify={notify} />} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route
                     path="/alerts"

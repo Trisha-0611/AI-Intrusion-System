@@ -52,9 +52,9 @@ export default function Home({ navigate, notify }) {
           </p>
 
           <div className="hero-ctas">
-            <button className="btn-primary" onClick={() => navigate("/dashboard")}>
-              <Shield size={16} />
-              Launch Dashboard
+            <button className="btn-primary" onClick={() => navigate("/login")}>
+              <Lock size={16} />
+              Sign In
               <ArrowRight size={14} />
             </button>
             <button className="btn-secondary" onClick={() => navigate("/analytics")}>
